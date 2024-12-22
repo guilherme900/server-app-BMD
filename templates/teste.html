@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {%if not data%}
+    <h1>banco vazil</h1>
+    {%endif%}
+    <ul>
+    {% for todo in data %}
+    <li>
+        <form action="/page/{{todo['id']}}" method="POST">
+
+            <input name="name" value="{{todo['name']}}">
+            <input name="email" value="{{todo['email']}}">
+            <input name="cpfCnpj" value="{{todo['cpfCnpj']}}">
+            <button type="submit">Editar</button>
+            <a href="/delete/{{todo['id']}}" >
+                ❌
+            </a>
+        </form>
+    </li>
+
+    {% endfor %}
+        <li>
+        <form action="/getproducts" method="POST">
+
+            <button type="submit">getproducts</button>
+
+        </form>
+    </li>
+</ul>
+</body>
+</html>
